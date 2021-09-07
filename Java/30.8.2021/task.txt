@@ -1,0 +1,8 @@
+Task
+-> In a store there are 8 to 10 customers, depending on who bought highest gets a gift and need to get total number of customers who bought more than 5000 rupees.
+
+ 
+
+-> there more than 9 students, who properties like, id, name, address, mathmarks, sci marks, socmarks, find out student who stored maximum total, and if total is same check for math marks who score high should be highest, if math marks are equal, sci marks, soc.
+2. create separate sorted student with student name length.
+3. create separate list of student with there averages in descending order.

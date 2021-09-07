@@ -1,0 +1,10 @@
+inter-thread communication -> wait(), notify(), notifyAll()
+
+bank -> withdraw(), deposit();
+
+Task :
+
+- write a program for car racing game, 8 cars which start at same point, randomly any car can win, but in middle information like who reached petrol pump , pitstop point first should be intimated
+			
+
+

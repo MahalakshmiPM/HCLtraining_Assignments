@@ -1,0 +1,10 @@
+- write a program to accept n number of elements from user and find out each number is even or odd.
+- write a program to accept n number of elements in 2 dimension form and each element should be reversed and printed
+- write a program to accept n number of employees (Employee e[] =new Employee[100]), 
+		1. add employee
+		2. delete employee
+		3. edit employee
+		4. display all employees
+		5. exit.
+
+using methods like salarydetails, noofemployess.....

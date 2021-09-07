@@ -1,0 +1,10 @@
+ write an example demonstrating all constructors from String, StringBuffer and StringBuilder.
+-> Go through all methods in String, StringBuffer, StringBuilder
+-> write a program to display scientific calculator my calling math class methods.
+
+	1. squareroot 
+	2. log
+	3. floor
+	4. ceiling.
+
+	loop should be given until giving exit.
