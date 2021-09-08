@@ -1,0 +1,144 @@
+create table Restaurant (resID int  AUTO_INCREMENT PRIMARY KEY, resName varchar(20),resAddress varchar(50),resCity varchar(20),contNo bigint);
+Query OK, 0 rows affected (2.30 sec)
+
+create table RMenuItems(menuID int auto_increment primary key,resID int references Restaurant(resID),menuName varchar(20),menuType varchar(20),menuCategory varchar(20),menuPrice float,menuDesc varchar(50));
+
+
+create table Customers(cusID varchar(35) primary key,cusName varchar(20),cusCity varchar(15),cusGender varchar(6),cusPass varchar(20));
+
+create table Orders(OrdID int auto_increment primary key,cusID varchar(35),ordDate date,deliAddress varchar(50),ordStatus varchar(15),foreign key(cusID) references Customers(cusId));
+
+create table OrderMenus(ordID int,menuID int,menyQty int,foreign key(ordID)references Orders(ordID),foreign key(menuID) references RMenuItems(menuID),primary key (ordID,menuID) );
+
+
+insert into Restaurant values(null,'Ponram','ryu qdhqoiefh hsagdkj Tamilnadu-624005','Dindigul',9552846194);
+insert into Restaurant values(0,'thalapakatti',' asghierf adfweufwe qwdqe Tamilnadu-624002','Dindigul',8153942647);
+insert into Restaurant values('Venu','j afargwfhkwj jfnwekfnqei Tamilnadu-638854','Trichy',6224493517);
+
+insert into RMenuItems values(null,1,'Briyani','Main','AN',250,'Briyani rice comes with one Egg ');
+insert into RMenuItems values(null,1,'Full Meals','Main','Food',250,'rice comes 2 variety of vegetable it is unlimited');
+insert into RMenuItems values(null,2,'Special Briyani','Main','Food',300,'crispy briyani with 1 egg and addons')
+insert into RMenuItems values(null,2,'Mega cone','Desserts','ice cream',300,'desired toppings and combos');
+insert into RMenuItems values(null,3,'Casata','Desserts','ice cream',50,'choco bread flavour');
+insert into RMenuItems values(null,3,'Meals','main','Food',200,'South Indian style,Unlimited');
+insert into RMenuItems values(null,3,'Fresh juice','Drinks','juice',150,'all  flavours');
+
+insert into Customers values('maha@gmail.com','Maha','Dindigul','F','12345','1999-10-05');
+insert into Customers values('lakshmi@gmail.com','Lakshmi','Dindigul','F','67890','1999-10-05');
+
+insert into Orders values (null,'maha@gmail.com','2021-09-05','Dindigul','Success');
+insert into Orders values (null,'maha@gmail.com','2021-09-06','Dindigul','Success');
+insert into Orders values (null,'maha@gmail.com','2021-09-06','Dindigul','On Process');
+insert into Orders values (null,'maha@gmail.com','2021-09-06','Dindigul','Cancelled');
+insert into Orders values (null,'maha@gmail.com','2021-09-06','Dindigul','On Process');
+insert into Orders values (null,'lakshmi@gmail.com','2021-09-05','Dindigul','Success');
+insert into Orders values (null,'lakshmi@gmail.com','2021-09-05','Dindigul','Cancelled');
+insert into Orders values (null,'maha@gmail.com','2021-09-05','Dindigul','On Process');
+
+mysql> insert into ordermenus values (2,3,2);
+mysql> insert into ordermenus values (3,1,1);
+mysql> insert into ordermenus values (4,3,1);
+mysql> insert into ordermenus values (5,7,3);
+mysql> insert into ordermenus values (6,6,2);
+mysql> insert into ordermenus values (7,5,1);
+mysql> insert into ordermenus values (8,4,2);
+mysql> insert into ordermenus values (9,1,1);
+
+
+1.....................................................................................................
+select * from Restaurant where resCity='Dindigul';
++-------+--------------+-------------------------------------------+----------+------------+
+| resID | resName      | resAddress                                | resCity  | contNo     |
++-------+--------------+-------------------------------------------+----------+------------+
+|     1 | Ponram       | ryu qdhqoiefh hsagdkj Tamilnadu-624005    | Dindigul | 9552846194 |
+|     2 | thalapakatti | asghierf adfweufwe qwdqe Tamilnadu-624002 | Dindigul | 8153942647 |
++-------+--------------+-------------------------------------------+----------+------------+
+ 
+select * from Restaurant where resCity='Trichy';
++-------+---------+------------------------------------------+---------+------------+
+| resID | resName | resAddress                               | resCity | contNo     |
++-------+---------+------------------------------------------+---------+------------+
+|     3 | Venu    | afargwfhkwj jfnwekfnqei Tamilnadu-638854 | Trichy  | 6224493517 |
++-------+---------+------------------------------------------+---------+------------+
+
+
+
+2..........................................................................
+select resID,ResName,menuID,menuName,menuPrice from Restaurant join RMenuItems on Restaurant.resID = RMenuItems.resID;
+ERROR 1052 (23000): Column 'resID' in field list is ambiguous
+alter table Restaurant rename column resId to restId;
+select resID,ResName,menuID,menuName,menuPrice from Restaurant join RMenuItems on Restaurant.restID = RMenuItems.resID;
++-------+--------------+--------+-----------------+-----------+
+| resID | ResName      | menuID | menuName        | menuPrice |
++-------+--------------+--------+-----------------+-----------+
+|     1 | Ponram       |      1 | Briyani         |       250 |
+|     1 | Ponram       |      2 | Full Meals      |       250 |
+|     2 | thalapakatti |      3 | Special Briyani |       300 |
+|     2 | thalapakatti |      4 | Mega cone       |       300 |
+|     3 | Venu         |      5 | Casata          |        50 |
+|     3 | Venu         |      8 | Meals           |       200 |
+|     3 | Venu         |      9 | Fresh juice     |       150 |
++-------+--------------+--------+-----------------+-----------+
+
+
+
+3..............................................................................................................................
+select resID,ResName,menuID,menuName,menuPrice from Restaurant join RMenuItems on Restaurant.restID = RMenuItems.resID where resCity = 'Trichy';
++-------+---------+--------+-------------+-----------+
+| resID | ResName | menuID | menuName    | menuPrice |
++-------+---------+--------+-------------+-----------+
+|     3 | Venu    |      5 | Casata      |        50 |
+|     3 | Venu    |      6 | Meals       |       200 |
+|     3 | Venu    |      7 | Fresh juice |       150 |
++-------+---------+--------+-------------+-----------+
+
+select resID,ResName,menuID,menuName,menuPrice from Restaurant join RMenuItems on Restaurant.restID = RMenuItems.resID where resCity = 'Dindigul';
++-------+--------------+--------+-----------------+-----------+
+| resID | ResName      | menuID | menuName        | menuPrice |
++-------+--------------+--------+-----------------+-----------+
+|     1 | Ponram       |      1 | Briyani         |       250 |
+|     1 | Ponram       |      2 | Full Meals      |       250 |
+|     2 | thalapakatti |      3 | Special Briyani |       300 |
+|     2 | thalapakatti |      4 | Mega cone       |       300 |
++-------+--------------+--------+-----------------+-----------+
+
+
+
+4.................................................................................................................
+mysql> select * from orders where cusID = 'maha@gmail.com';
++-------+----------------+------------+-------------+------------+
+| OrdID | cusID          | ordDate    | deliAddress | ordStatus  |
++-------+----------------+------------+-------------+------------+
+|     2 | maha@gmail.com | 2021-09-05 | Dindigul    | Success    |
+|     3 | maha@gmail.com | 2021-09-06 | Dindigul    | Success    |
+|     4 | maha@gmail.com | 2021-09-06 | Dindigul    | On Process |
+|     5 | maha@gmail.com | 2021-09-06 | Dindigul    | Cancelled  |
+|     6 | maha@gmail.com | 2021-09-06 | Dindigul    | On Process |
+|     9 | maha@gmail.com | 2021-09-05 | Dindigul    | On Process |
++-------+----------------+------------+-------------+------------+
+
+
+5..................................................................................................................
+select * from ordermenus join orders where cusId = 'maha@gmail.com' and ordermenus.ordId=orders.ordID;
++-------+--------+---------+-------+----------------+------------+-------------+------------+
+| ordID | menuID | menyQty | OrdID | cusID          | ordDate    | deliAddress | ordStatus  |
++-------+--------+---------+-------+----------------+------------+-------------+------------+
+|     2 |      3 |       2 |     2 | maha@gmail.com | 2021-09-05 | Dindigul    | Success    |
+|     3 |      1 |       1 |     3 | maha@gmail.com | 2021-09-06 | Dindigul    | Success    |
+|     4 |      3 |       1 |     4 | maha@gmail.com | 2021-09-06 | Dindigul    | On Process |
+|     5 |      7 |       3 |     5 | maha@gmail.com | 2021-09-06 | Dindigul    | Cancelled  |
+|     6 |      6 |       2 |     6 | maha@gmail.com | 2021-09-06 | Dindigul    | On Process |
+|     9 |      1 |       1 |     9 | maha@gmail.com | 2021-09-05 | Dindigul    | On Process |
++-------+--------+---------+-------+----------------+------------+-------------+------------+
+
+6..................................................................................................................
+select * from orders where cusID='maha@gmail.com' order by ordID desc LIMIT 5;
++-------+----------------+------------+-------------+------------+
+| OrdID | cusID          | ordDate    | deliAddress | ordStatus  |
++-------+----------------+------------+-------------+------------+
+|     9 | maha@gmail.com | 2021-09-05 | Dindigul    | On Process |
+|     6 | maha@gmail.com | 2021-09-06 | Dindigul    | On Process |
+|     5 | maha@gmail.com | 2021-09-06 | Dindigul    | Cancelled  |
+|     4 | maha@gmail.com | 2021-09-06 | Dindigul    | On Process |
+|     3 | maha@gmail.com | 2021-09-06 | Dindigul    | Success    |
++-------+----------------+------------+-------------+------------+

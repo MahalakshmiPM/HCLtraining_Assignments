@@ -1,0 +1,50 @@
+Develop a Bank DataBase
+-----------------------
+Tables
+-----
+1. CustomersInfo with Auto gen CustomerID
+   (CustomerID(PK) , CustomerName, CustomerCity, CustomerAddress , CustomerMobileNo(U), PAN (U), CustomerPassword )
+2. AccountInfo with auto gen AccountID
+   (AccountID(PK),CustomerID(FK),AccountType,AccountBalance,AccountOpenDate, AccountStatus(Open,Closed,Blocked)) 
+3. TransactionInfo with Auto gen TransactionID
+   (TransactionID (PK),AccountID (FK),TransactionType (D,C),Amount (>0),TransactionDate)
+
+Enter some test data (min 10 rows)
+
+Reports
+1. Latest 5 transactions of an account (Enter Account ID as an Input).
+2. Transaction between two dates of an account (Enter Account ID as an Input)
+3. List of Accounts of a Customer (Enter Customer ID as an input)
+4. List of customers(CustomerID,CustomerName,CustomerAddress,CustomerMobileNo, AccountID , AccountBalance).
+5. List of accounts with transactions (AccountID , AccountBalance , TransID , Amount, TransationType).
+6. List of customers with accounts and transations (CustomerID,CustomerName,CustomerAddress,CustomerMobileNo, AccountID , AccountBalance,TransationID , Amount, TransationType)
+
+Note : A customer can have multiple accounts. Implement data integrity.
+
+ 
+OnlineFoodOrderingDB
+
+1. Create a Table called Restaurants
+	RestaurantID(PK,Auto), RestaurantName , RestaurantAddress , RestaurantCity , ContactNo
+2. Create a Table called RMenuItems
+	MenuID (PK , Auto) ,RestID (FK), MenuName , MenuType , MenuCategory , MenuPrice , MenuDesc
+3. Create a Table called Customers
+	CustomerID (PK, Email) , CustomerName , CustomerCity , CustomerDOB , CustomerGender , CustomerPassword
+4. Create a table called Orders
+	OrderID (PK, Auto) , CustomerID (FK) , OrderDate , DeliveryAddress , OrderStatus
+5. Create a table called OrderMenus
+	OrderID (FK) , MenuID(FK) , MenuQty , MenuPrice 
+	Note : OrderID & MenuID should be together primary key.
+
+Add some dummy data in the tables.
+
+Reports / Queries
+
+1. Show the list of Restaurant of specific city
+2. Show the list of all Restaurants along with menus (RestaurantID , RestaurantName ,MenuID , MenuName , MenuPrice)
+3. Show the list of  Restaurants along with menus (RestaurantID , RestaurantName ,MenuID , MenuName , MenuPrice) of specific city
+4. Show the list of Orders of a specific customer
+5. Show the list of orders along with ordermenus of a specific customer
+6. Show the list of latest 5 orders of a specific customer
+
+
