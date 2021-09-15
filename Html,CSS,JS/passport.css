@@ -5,15 +5,19 @@ color:white;
 .c2{
 background-color:#F4ECF7 ;
 }
+
 table{
 width:100%
 }
+
 .yel{
 background-color:#FEFFD1;
 }
+
 .blu{
 background-color:#e6fff2;
 }
+
 .ast{
 color:red;
 }
@@ -23,12 +27,14 @@ float:right;
 margin-right:25%;
 width:25%;
 }
+
 select{
 float:right;
 margin-right:25%;
 width:25.8%;
 text-align:left;
 }
+
 th{
 color:red;
 text-align:left;
