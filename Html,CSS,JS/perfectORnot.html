@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+	var n1=parseInt(prompt("enter a value : ",0));
+		var sum=0;
+		for(let i=1;i<n1;i++)
+		{
+		if(n1%i==0)
+		{
+		sum=sum+i;
+		}
+		}
+		if(sum==n1)
+		document.write("perfect number" + " <br> " );
+		else
+		document.write("not perfect number" + " <br> " );
+  </script>
+ </body>
+</html>
