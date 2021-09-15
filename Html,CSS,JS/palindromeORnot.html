@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+	var n=parseInt(prompt("enter a value : ",0));
+		var q=n, arm=0,r=0;
+		while(q>0)
+		{
+		r=(r*10)+(q%10);
+		q=Math.floor((q/10));
+		}
+		if(n==r)
+		document.write("palindrome" + " <br> " );
+		else
+		document.write("not palindrome" + " <br> " );
+  </script>
+ </body>
+</html>
