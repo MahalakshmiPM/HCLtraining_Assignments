@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+<style type="text/css">
+#box{
+display: block;
+color:white;
+text-align: center;
+width: 500px;
+height: 100px;
+padding: 50px;
+margin: 50px auto;
+border: 2px solid red;
+/*background: orange;*/
+/*background : -webkit-linear-gradient(top,black,white)*/
+background : -webkit-repeating-radial-gradient(center,circle,red ,orange 10%,maroon 20%);
+-webkit-transition: -webkit-transform 1s;
+-webkit-border-radius: 100px;
+-webkit-box-shadow: rgb(110,110,110) 60px 60px 60px;
+/*-webkit-transform:translate(0px,0px) rotate(90deg) scale(.50);*/
+-webkit-transitionL-webkit-transform 0s, opacity 2s; background 2s, width 2s, height 2s;
+}
+#box:hover{
+-webkit-transform:rotate(360deg);
+opacity: 1;
+background:#ccff00;
+width: 200px;
+height:100px;
+}
+#text:hover{
+color:#ff00ff;
+}
+#text{
+font: bold 30px Century Gothic;
+color:white;
+}
+
+</style>
+
+
+ </head>
+ <body>
+  <div id="box">
+<p id="text">Click here </p>
+</div>
+ </body>
+</html>
