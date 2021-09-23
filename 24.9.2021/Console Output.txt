@@ -1,0 +1,49 @@
+Sep 24, 2021 3:17:04 AM org.springframework.context.support.AbstractApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@370736d9: startup date [Fri Sep 24 03:17:04 IST 2021]; root of context hierarchy
+Sep 24, 2021 3:17:05 AM org.springframework.beans.factory.xml.XmlBeanDefinitionReader loadBeanDefinitions
+INFO: Loading XML bean definitions from class path resource [applicationContext.xml]
+Sep 24, 2021 3:17:05 AM org.springframework.jdbc.datasource.DriverManagerDataSource setDriverClassName
+INFO: Loaded JDBC driver: com.mysql.cj.jdbc.Driver
+
+Enter : 1.insert  2.update 3.delete 4.print1  5.print2  0.exit
+1
+employee inserted successfully
+
+
+Enter : 1.insert  2.update 3.delete 4.print1  5.print2  0.exit
+2
+values updated successfully
+
+
+Enter : 1.insert  2.update 3.delete 4.print1  5.print2  0.exit
+4
+[EmployeeBean [eid=57358, ename=Mahalakshmi.P.M, eaddress=Tamin Nadu, esalary=50000]]
+
+
+Enter : 1.insert  2.update 3.delete 4.print1  5.print2  0.exit
+3
+Employee deleted successfully
+
+
+Enter : 1.insert  2.update 3.delete 4.print1  5.print2  0.exit
+4
+[]
+
+
+Enter : 1.insert  2.update 3.delete 4.print1  5.print2  0.exit
+1
+employee inserted successfully
+
+
+Enter : 1.insert  2.update 3.delete 4.print1  5.print2  0.exit
+4
+[EmployeeBean [eid=57358, ename=Mahalakshmi, eaddress=TN, esalary=30000]]
+
+
+Enter : 1.insert  2.update 3.delete 4.print1  5.print2  0.exit
+5
+[EmployeeBean [eid=57358, ename=Mahalakshmi, eaddress=TN, esalary=30000]]
+
+
+Enter : 1.insert  2.update 3.delete 4.print1  5.print2  0.exit
+0
