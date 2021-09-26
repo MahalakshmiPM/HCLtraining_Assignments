@@ -12,9 +12,7 @@
 int accountid=Integer.parseInt(request.getParameter("ID"));
 String accounttype=request.getParameter("acctype");
 
-try {
-	
-	Class.forName("com.mysql.cj.jdbc.Driver");
+try {	Class.forName("com.mysql.cj.jdbc.Driver");
 	String url=application.getInitParameter("url");
 	String username=application.getInitParameter("username");
 	String password=application.getInitParameter("password");
